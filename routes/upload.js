@@ -11,7 +11,7 @@ cloudinary.config({
     api_secret:process.env.CLOUD_API_SECRET
 })
 //upload images (only admin can do this)
-router.post('/upload',(req,res)=>{
+router.post('/upload',auth,authAdmin,(req,res)=>{
     try {
         console.log(req.files)
         if(!req.files || Object.keys(req.files).length===0){
@@ -43,7 +43,7 @@ router.post('/upload',(req,res)=>{
 })
 
 //delete images (only admin can do this)
-router.post('/trash',(req,res)=>{
+router.post('/trash',auth,authAdmin,(req,res)=>{
     try {
         const {public_id}=req.body;
         if(!public_id)

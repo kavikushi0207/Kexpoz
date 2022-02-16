@@ -35,7 +35,8 @@ const userController = {
 
             res.cookie('refreshtoken',refreshtoken,{
                 httpOnly : true,
-                path : '/user/refresh_token'
+                path : '/user/refresh_token',
+                maxAge :7*24*60*60*1000 //7days
             })
             res.json({accessToken})
            //res.json({msg:"Signed Up Successfully!"})
@@ -62,7 +63,8 @@ const userController = {
       
                   res.cookie('refreshtoken',refreshtoken,{
                       httpOnly : true,
-                      path : '/user/refresh_token'
+                      path : '/user/refresh_token',
+                      maxAge :7*24*60*60*1000 //7days
                   })
                   res.json({accessToken})
             //res.json({msg:"Successfully Login!"})
